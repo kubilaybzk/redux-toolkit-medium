@@ -1,6 +1,8 @@
+import Head from "next/head";
 import ReduxProvider from "../Redux/ReduxProvider";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Header from "@/Components/Globals/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <Header />
+          <main className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            {children}
+          </main>
+        </ReduxProvider>
       </body>
     </html>
   );
